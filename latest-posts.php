@@ -20,13 +20,13 @@ Author URI: http://profiles.wordpress.org/mkrdip/
 	}
 
 	// Register thumbnail sizes.
-	if ( function_exists('add_image_size') )
+	if ( function_exists ('the_post_thumbnail') )
 	{
 		$sizes = get_option('mkrdip_latest_posts_thumb_sizes');
 		if ( $sizes )
 		{
 			foreach ( $sizes as $id=>$size )
-				add_image_size( 'latest_posts_thumb_size' . $id, $size[0], $size[1], true );
+				get_the_post_thumbnail( 'latest_posts_thumb_size' . $id, $size[0], $size[1], true );
 		}
 	}
 
@@ -83,7 +83,7 @@ Author URI: http://profiles.wordpress.org/mkrdip/
 		{
 			$cat_posts->the_post();
 		?>
-			<li class="recent-post-thumb-item">
+			<li class="latest-post-item">
 				<a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 				
 
@@ -99,7 +99,7 @@ Author URI: http://profiles.wordpress.org/mkrdip/
 						has_post_thumbnail()
 					) :
 				?>
-					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" style="width:<?php echo $thumb_w; ?>px; height:<?php echo $thumb_h; ?>px;">
 					<?php the_post_thumbnail( 'latest_posts_thumb_size'.$this->id ); ?>
 					</a>
 				<?php endif; ?>
