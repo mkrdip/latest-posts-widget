@@ -1,5 +1,5 @@
-=== Category Posts Widget ===
-Contributors: mkrdip
+=== Latest Posts Widget ===
+Contributors: mkrdip, tareq1988
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mkrdip%40yahoo%2ecom&lc=US&item_name=WordPress%20Plugins%20by%20Mrinal&item_number=04&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: posts, widget, latest posts widget, posts widget, recent posts, latest posts, post thumbnails
 Requires at least: 2.8
@@ -8,11 +8,11 @@ Stable tag: trunk
 License: GPLv2 or later 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a widget that shows the most recent posts of your site with Thumbnail, Excerpt, Date etc options
+Adds a widget that shows the most recent posts of your site with excerpt, featured image, date by sorting & ordering feature
 
 == Description ==
 
-Latest Posts Widget is a light widget designed to do one thing and do it well: display the most recent posts from your site with various options.
+Latest Posts Widget is a light widget designed to do one thing and do it well: display the most recent posts from your site with various options like excerpt, featured image, date by sorting & ordering feature.
 
 = Features =
 
@@ -54,8 +54,8 @@ Nothing here!
 == Screenshots ==
 
 1. The widget configuration dialog.
-2. Front end of the widget using a default WordPress Theme.
-3. Latest Posts list showing post title only
+2. Front end of the widget showing full features of the plugin in a default WordPress Theme.
+3. Latest Posts list showing post title only.
 
 == Changelog ==
 
