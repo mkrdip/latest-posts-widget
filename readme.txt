@@ -1,9 +1,9 @@
 === Latest Posts Widget ===
-Contributors: mkrdip
+Contributors: mkrdip, ogg1980
 Donate link: http://mkrdip.me/donate
 Tags: posts, widget, latest posts widget, posts widget, recent posts, latest posts, post thumbnails
 Requires at least: 3.0
-Tested up to: 4.3
+Tested up to: 4.5.3
 Stable tag: trunk
 License: GPLv2 or later 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,6 +22,7 @@ Latest Posts Widget is a light widget designed to do one thing and do it well: d
 * Option to show the post excerpt and how long the excerpt should be.
 * Option to show the post date.
 * Option to show the comment count.
+* Option to select posts from specified category.
 * Multiple widgets.
 
 = Contribute =
@@ -58,6 +59,11 @@ Nothing here!
 3. Latest Posts list showing post title only.
 
 == Changelog ==
+
+1.2
+
+* Add option to specify category
+* Compatible with WordPress 4.5.3
 
 1.1
 
