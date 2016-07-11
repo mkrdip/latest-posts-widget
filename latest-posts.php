@@ -71,11 +71,19 @@ class LP_Post_Widget extends WP_Widget {
 			$sort_order = 'DESC';
 		}
 
+		if ($instance['category'] == 'all') {
+			$category = '';
+		} else {
+			$category = $instance['category'];
+		}
+
 		// Get array of post info.
 		$cat_posts = new WP_Query( array(
 			'posts_per_page' => $instance['num'],
 			'orderby'        => $sort_by,
-			'order'          => $sort_order
+			'order'          => $sort_order,
+			'category_name'  => $category,
+			'post_type'      => get_post_types(array('_builtin' => false, 'public' => true), 'names') + ['post' => 'post'],
 		) );
 
 		// Excerpt length filter
@@ -163,6 +171,7 @@ class LP_Post_Widget extends WP_Widget {
 	function form( $instance ) {
 		$instance = wp_parse_args( ( array ) $instance, array(
 			'title'          => __( 'Latest Posts' ),
+			'category'       => __( '' ),
 			'num'            => __( '' ),
 			'sort_by'        => __( '' ),
 			'asc_sort_order' => __( '' ),
@@ -176,6 +185,7 @@ class LP_Post_Widget extends WP_Widget {
 		) );
 
 		$title          = $instance['title'];
+		$category       = $instance['category'];
 		$num            = $instance['num'];
 		$sort_by        = $instance['sort_by'];
 		$asc_sort_order = $instance['asc_sort_order'];
@@ -199,6 +209,25 @@ class LP_Post_Widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id( "num" ); ?>">
 				<?php _e( 'Number of posts to show' ); ?>:
 				<input style="text-align: center;" id="<?php echo $this->get_field_id( "num" ); ?>" name="<?php echo $this->get_field_name( "num" ); ?>" type="text" value="<?php echo absint( $instance["num"] ); ?>" size='3' />
+			</label>
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( "category" ); ?>">
+				<?php _e( 'Limit to posts in category' ); ?>:
+
+				<?php
+				wp_dropdown_categories( array(
+					'hide_empty'        => 1,
+					'name'              => $this->get_field_name( "category"),
+					'orderby'           => 'name',
+					'option_none_value' => 'all',
+					'value_field'       => 'slug',
+					'hierarchical'      => true,
+					'show_option_none'  => __('All'),
+					'selected'          => $instance['category'],
+				) );
+				?>
 			</label>
 		</p>
 
